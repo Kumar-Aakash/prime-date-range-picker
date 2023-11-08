@@ -1,5 +1,30 @@
 <!--
- * @(#)prime-date-range-picker.component.html Oct 31, 2023
+  /**
+ * @(#)prime-date-range-picker.component.html Nov 08, 2023
  *
  * @author Aakash Kumar
- -->
+ */
+-->
+<div class="prime-date-range-picker">
+  <span class="p-input-icon-right">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText [readonly]="true" (click)="op.toggle($event)" />
+  </span>
+
+  <p-overlayPanel #op>
+    <div class="date-picker-template">
+      <div class="first-col">
+        <p-listbox [options]="dateDropDownOptions" optionLabel="optionLabel" [style]="{'width':'100%'}"
+          [listStyle]="{'max-height': '100%'}"></p-listbox>
+        <!-- <ng-container *ngFor="let option of dateDropDownOptions">
+          <span *ngIf="option.isVisible">{{option.optionLabel}}</span>
+        </ng-container> -->
+
+      </div>
+      <div class="second-col">
+        <p-calendar class="calendar-first-view" [(ngModel)]="rangeDates" [inline]="true" selectionMode="range"
+          [readonlyInput]="true"></p-calendar>
+      </div>
+    </div>
+  </p-overlayPanel>
+</div>

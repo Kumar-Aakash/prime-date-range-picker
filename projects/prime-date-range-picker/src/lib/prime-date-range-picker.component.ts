@@ -1,13 +1,56 @@
 /**
- * @(#)prime-date-range-picker.component.ts Oct 31, 2023
+ * @(#)prime-date-range-picker.component.ts Nov 08, 2023
  *
  * @author Aakash Kumar
  */
-import { Component } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { ISelectDateOption } from './model/select-date-option';
+import { DEFAULT_DATE_OPTIONS } from './data/default-date-options';
 
 @Component({
-  selector: 'prime-date-range-picker',
+  selector: 'app-prime-date-range-picker',
   templateUrl: './prime-date-range-picker.component.html',
-  styles: [],
+  styleUrls: ['./prime-date-range-picker.component.css'],
 })
-export class PrimeDateRangePickerComponent {}
+export class PrimeDateRangePickerComponent {
+  isDateOptionList: boolean = false;
+  isCustomRange: boolean = false;
+  rangeDates: Date[] | undefined;
+
+  @Input() dateFormat: string = 'dd/MM/yyyy';
+  @Output() dateListOptions: EventEmitter<ISelectDateOption[]>;
+
+  private _dateDropDownOptions: ISelectDateOption[] = DEFAULT_DATE_OPTIONS;
+
+  constructor(private cdref: ChangeDetectorRef) {
+    this.dateListOptions = new EventEmitter<ISelectDateOption[]>();
+  }
+
+  @Input()
+  set dateDropDownOptions(defaultDateList: ISelectDateOption[]) {
+    this._dateDropDownOptions =
+      this.getClone<ISelectDateOption[]>(DEFAULT_DATE_OPTIONS).concat(
+        defaultDateList
+      );
+  }
+
+  get dateDropDownOptions(): ISelectDateOption[] {
+    return this._dateDropDownOptions.filter((dp) => dp.isVisible) ?? [];
+  }
+  /**
+   * This method clone the data.
+   *
+   * @param data T
+   * @returns T
+   */
+  private getClone<T>(data: T): T {
+    return JSON.parse(JSON.stringify(data));
+  }
+}
