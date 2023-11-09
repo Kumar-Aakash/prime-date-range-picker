@@ -1,0 +1,75 @@
+/**
+ * @(#)prime-date-range-picker.component.css Nov 08, 2023
+ *
+ * @author Aakash Kumar
+ */
+ .date-picker-template {
+  min-width: 800px;
+  height: 350px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.first-col {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+
+.second-col {
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+
+.listBox {
+  width: 100%;
+  height: 100%;
+}
+
+.calendar-first-view,
+.calendar-second-view {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+::ng-deep {
+  .p-calendar {
+    width: 100%;
+    height: 100%;
+  }
+
+  .p-datepicker table td {
+    padding: 0px;
+  }
+  .p-listbox {
+    border: 0;
+  }
+  .p-calendar .p-datepicker {
+    border: 0;
+  }
+  .p-overlaypanel .p-overlaypanel-content {
+    padding: 0px;
+    border-right: 1px solid var(--border-color, #ddd);
+  }
+}
+
+.border-right {
+  border-right: 1px solid var(--border-color, #ddd);
+}
+
+.calendar-second-view {
+  // border-left: 1px solid var(--border-color, #ddd);
+
+}
+
+.button-container {
+  width: 100%;
+  border-top: 1px solid var(--border-color, #ddd);
+  float: left;
+  display: flex;
+  justify-content: end;
+  gap: 0.7rem;
+  padding: 0.5rem;
+}

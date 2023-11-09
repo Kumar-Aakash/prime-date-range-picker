@@ -13,18 +13,25 @@
 
   <p-overlayPanel #op>
     <div class="date-picker-template">
-      <div class="first-col">
-        <p-listbox [options]="dateDropDownOptions" optionLabel="optionLabel" [style]="{'width':'100%'}"
-          [listStyle]="{'max-height': '100%'}"></p-listbox>
-        <!-- <ng-container *ngFor="let option of dateDropDownOptions">
-          <span *ngIf="option.isVisible">{{option.optionLabel}}</span>
-        </ng-container> -->
-
+      <div class="row-1">
+        <div class="first-col border-right">
+          <p-listbox [options]="dateDropDownOptions" optionLabel="optionLabel" [style]="{'width':'100%'}"
+            [listStyle]="{'max-height': '100%'}"></p-listbox>
+        </div>
+        <div class="second-col">
+          <div class="calendar-second-view">
+            <p-calendar class="max-w-full" [(ngModel)]="rangeDates" [inline]="true" selectionMode="range"
+              [style]="{'width':'100%','height':'100%'}" [readonlyInput]="true"></p-calendar>
+          </div>
+          <div class="calendar-first-view">
+            <p-calendar [(ngModel)]="rangeDates" [inline]="true" selectionMode="range"
+              [style]="{'width':'100%','height':'100%'}" [readonlyInput]="true"></p-calendar>
+          </div>
+        </div>
       </div>
-      <div class="second-col">
-        <p-calendar class="calendar-first-view" [(ngModel)]="rangeDates" [inline]="true" selectionMode="range"
-          [readonlyInput]="true"></p-calendar>
-      </div>
+      <div class="row-2 button-container"> <p-button label="Cancel" severity="default"></p-button><p-button
+          label="Apply"></p-button></div>
     </div>
   </p-overlayPanel>
+  <!-- //  p-datepicker-prev -->
 </div>

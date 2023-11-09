@@ -17,7 +17,7 @@ import { DEFAULT_DATE_OPTIONS } from './data/default-date-options';
 @Component({
   selector: 'app-prime-date-range-picker',
   templateUrl: './prime-date-range-picker.component.html',
-  styleUrls: ['./prime-date-range-picker.component.css'],
+  styleUrls: ['./prime-date-range-picker.component.scss'],
 })
 export class PrimeDateRangePickerComponent {
   isDateOptionList: boolean = false;
