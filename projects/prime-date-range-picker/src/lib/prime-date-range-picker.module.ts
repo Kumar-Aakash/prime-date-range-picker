@@ -3,15 +3,17 @@
  *
  * @author Aakash Kumar
  */
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrimeDateRangePickerComponent } from './prime-date-range-picker.component';
-import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ListboxModule } from 'primeng/listbox';
-import { CalendarModule } from 'primeng/calendar';
-import { FormsModule } from '@angular/forms';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { CalendarComponent } from './calendar/calendar.component';
+import { StopClickPropagationDirective } from './directive/stop-click-propagation.directive';
+import { PrimeDateRangePickerComponent } from './prime-date-range-picker.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,11 @@ import { FormsModule } from '@angular/forms';
     CalendarModule,
     FormsModule,
   ],
-  declarations: [PrimeDateRangePickerComponent],
+  declarations: [
+    PrimeDateRangePickerComponent,
+    CalendarComponent,
+    StopClickPropagationDirective,
+  ],
   exports: [PrimeDateRangePickerComponent],
 })
 export class PrimeDateRangePickerModule {}

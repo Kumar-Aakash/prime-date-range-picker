@@ -22,8 +22,6 @@ import { DEFAULT_DATE_OPTIONS } from './data/default-date-options';
 export class PrimeDateRangePickerComponent {
   isDateOptionList: boolean = false;
   isCustomRange: boolean = false;
-  rangeDates: Date[] | undefined;
-
   @Input() dateFormat: string = 'dd/MM/yyyy';
   @Output() dateListOptions: EventEmitter<ISelectDateOption[]>;
 
@@ -52,5 +50,9 @@ export class PrimeDateRangePickerComponent {
    */
   private getClone<T>(data: T): T {
     return JSON.parse(JSON.stringify(data));
+  }
+
+  buttonClicl(){
+    console.log('clicked/....')
   }
 }
